@@ -1,0 +1,78 @@
+<!-- <div class="container">
+  <h3 class="d-flex justify-content-center">Angular 8 with Web API</h3>
+  <h5 class="d-flex justify-content-center">User Management Portal</h5>
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button class="m-1 btn btn-light btn-outline-primary" Button
+        label ="UsrScreen"
+        (click) = "UsrScreen=true; ProScreen=false;">
+        Users
+        </button>
+      </li>
+      <li class="nav-item">
+          <button class="m-1 btn btn-light btn-outline-primary" Button
+          label ="ProScreen"
+          (click) = "UsrScreen=false; ProScreen=true;">
+          Products
+          </button>
+        </li>
+      
+      
+    </ul>
+
+  </nav>
+
+  <app-user *ngIf="UsrScreen"></app-user>
+  <app-product *ngIf="ProScreen"></app-product>
+</div> -->
+
+
+<div class="container">
+  <!-- <h3 class="d-flex justify-content-center">Angular 8 with Web API</h3> -->
+  <h2 class="d-flex justify-content-center">User Management Portal</h2>
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button 
+        routerLink="user"
+        class="m-1 btn btn-light btn-outline-primary" Button
+        label ="UsrScreen"> 
+        Users
+        </button>
+      </li>
+      <li class="nav-item">
+          <button 
+          routerLink="product"
+          class="m-1 btn btn-light btn-outline-primary" Button
+          label ="ProScreen">
+          Products
+          </button>
+      </li>
+      <li class="nav-item">
+        <button 
+        routerLink="process"
+        class="m-1 btn btn-light btn-outline-primary" Button
+        label ="ProcScreen">
+        Processes
+        </button>
+      </li>
+      <li class="nav-item">
+        <button 
+        routerLink="productlinkprocess"
+        class="m-1 btn btn-light btn-outline-primary" Button
+        label ="PlpScreen">
+        Product Links Process
+        </button>
+      </li>
+      
+      
+    </ul>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+  
+</div>

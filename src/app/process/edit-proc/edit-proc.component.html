@@ -1,0 +1,101 @@
+<div class="d-flex justify-content-between">
+    <h4>Edit Process</h4>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div>
+    <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+            
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">ID</span>
+                </div>
+                <input readonly="readonly" type="text"
+                class="form-control"
+                name="id"
+                #ID="ngModel"
+                [(ngModel)]="service.formData.id">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="ID.invalid && ID.touched">
+            Please enter ID
+            </div>
+            
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">UserID</span>
+                </div>
+                <select required  type="text"
+                class="form-control"
+                name="user_id"
+                #USER_ID="ngModel"
+                [(ngModel)]="service.formData.user_id">
+                <option *ngFor="let dl of listItems" [value]="dl">
+                    {{dl}}
+                </option>
+                </select>
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="USER_ID.invalid && USER_ID.touched">
+            Please enter ID
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">User Title</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="title"
+                #Title="ngModel"
+                [(ngModel)]="service.formData.title">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="Title.invalid && Title.touched">
+            Please enter title
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">User Description</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="description"
+                #Description="ngModel"
+                [(ngModel)]="service.formData.description">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="Description.invalid && Description.touched">
+            Please enter Description
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">CREATED_DATE</span>
+                </div>
+                <input required [matDatepicker]="picker"
+                class="form-control" type="text"
+                name="created_on"
+                #CREATED_DATE="ngModel"
+                [(ngModel)]="service.formData.created_on">
+
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="CREATED_DATE.invalid && CREATED_DATE.touched">
+            Please enter CREATED_DATE
+            </div>
+
+            
+            <button class="m-3" mat-raised-button
+            color="primary" type="submit"
+            [disabled]="form.invalid">Update Process</button>
+        </form>
+    </div>
+</div>

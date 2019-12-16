@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-between m-3">
+    <h4>Edit User</h4>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div>
+    <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+            
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">User ID</span>
+                </div>
+                <input readonly="readonly" type="text"
+                class="form-control"
+                name="id"
+                #ID="ngModel"
+                [(ngModel)]="service.formData.id">
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">User Email</span>
+                </div>
+                <input required minlength="2" type="text"
+                class="form-control"
+                name="email"
+                #Email="ngModel"
+                [(ngModel)]="service.formData.email">
+            </div>
+            <div class="text-left text-danger"
+            *ngIf="Email.invalid && Email.touched">
+            Please enter User Name
+        </div>
+        <button class="m-3" mat-raised-button
+        color="primary" type="submit"
+        [disabled]="form.invalid">Update User</button>
+        </form>
+    </div>
+</div>
